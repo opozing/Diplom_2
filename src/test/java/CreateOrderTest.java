@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 
 public class CreateOrderTest extends RandomGenerator {
@@ -45,6 +45,10 @@ public class CreateOrderTest extends RandomGenerator {
         orderClient.createOrder(createOrderJson, token)
                 .assertThat().statusCode(200)
                 .body("name", is("Флюоресцентный бургер"));
+
+        orderClient.getOrdersCurrentUser(token)
+                .assertThat().statusCode(200)
+                .body("orders", hasSize(1));
     }
 
     @Test
@@ -69,6 +73,10 @@ public class CreateOrderTest extends RandomGenerator {
         orderClient.createOrder(createOrderJson, token)
                 .assertThat().statusCode(400)
                 .body("message", is("Ingredient ids must be provided"));
+
+        orderClient.getOrdersCurrentUser(token)
+                .assertThat().statusCode(200)
+                .body("orders", empty());
     }
 
     @Test
@@ -82,5 +90,9 @@ public class CreateOrderTest extends RandomGenerator {
 
         orderClient.createOrder(createOrderJson, token)
                 .assertThat().statusCode(500);
+
+        orderClient.getOrdersCurrentUser(token)
+                .assertThat().statusCode(200)
+                .body("orders", empty());
     }
 }

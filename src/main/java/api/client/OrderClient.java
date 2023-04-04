@@ -25,4 +25,12 @@ public class OrderClient {
                 .when().post(BASE_URL + ORDERS_URL)
                 .then();
     }
+
+    public ValidatableResponse getOrdersCurrentUser(String token) {
+        return given()
+                .header("Content-type", "application/json")
+                .header("Authorization", token)
+                .when().get(BASE_URL + ORDERS_URL)
+                .then();
+    }
 }
