@@ -1,4 +1,5 @@
 import api.client.UserClient;
+import io.qameta.allure.junit4.DisplayName;
 import org.example.CreateUserPOJO;
 import org.example.LoginUserPOJO;
 import org.example.model.RandomGenerator;
@@ -25,6 +26,7 @@ public class LoginUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can login with correct values")
     public void canLoginWithCorrectUser() {
         CreateUserPOJO createUserJson = new CreateUserPOJO(getRandom() + "@ya.ru", getRandom(),
                 getRandom());
@@ -40,6 +42,7 @@ public class LoginUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can't login with wrong values")
     public void canNotLoginWithWrongValues() {
         CreateUserPOJO createUserJson = new CreateUserPOJO(getRandom() + "@ya.ru", getRandom(),
                 getRandom());

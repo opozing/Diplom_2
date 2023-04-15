@@ -1,5 +1,6 @@
 import api.client.OrderClient;
 import api.client.UserClient;
+import io.qameta.allure.junit4.DisplayName;
 import org.example.CreateOrderPOJO;
 import org.example.CreateUserPOJO;
 import org.example.IngredientResponsePOJO2;
@@ -36,6 +37,7 @@ public class GetOrdersCurrentUser extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can get orders of current authorized user")
     public void canGetOrdersCurrentAuthorizedUser() {
         CreateUserPOJO createUserJson = new CreateUserPOJO( getRandom() + "@ya.ru", getRandom(),
                 getRandom());
@@ -54,6 +56,7 @@ public class GetOrdersCurrentUser extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can't get orders of current unauthorized user")
     public void canNotGetOrdersCurrentUnauthorizedUser() {
         orderClient.getOrdersCurrentUser("")
                 .assertThat().statusCode(401)

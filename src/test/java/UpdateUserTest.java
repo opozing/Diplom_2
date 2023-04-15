@@ -1,4 +1,5 @@
 import api.client.UserClient;
+import io.qameta.allure.junit4.DisplayName;
 import org.example.CreateUserPOJO;
 import org.example.model.RandomGenerator;
 import org.junit.After;
@@ -28,6 +29,7 @@ public class UpdateUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can update authorized user")
     public void canUpdateAuthorizedUser() {
         CreateUserPOJO createUserJson1 = new CreateUserPOJO(getRandom() + "@ya.ru", getRandom(),
                 getRandom());
@@ -56,6 +58,7 @@ public class UpdateUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can't update unauthorized user")
     public void canNotUpdateUnauthorizedUser() {
         CreateUserPOJO createUserJson1 = new CreateUserPOJO(getRandom() + "@ya.ru", getRandom(),
                 getRandom());
@@ -83,6 +86,7 @@ public class UpdateUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can't update if wrong user email")
     public void canNotUpdateWithAnotherUserEmail() {
         CreateUserPOJO createUserJson1 = new CreateUserPOJO(getRandom() + "@ya.ru", getRandom(),
                 getRandom());

@@ -1,4 +1,5 @@
 import api.client.UserClient;
+import io.qameta.allure.junit4.DisplayName;
 import org.example.CreateUserPOJO;
 import org.example.LoginUserPOJO;
 import org.example.model.RandomGenerator;
@@ -25,6 +26,7 @@ public class CreateUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can create user with correct values")
     public void canCreateCorrectUser() {
         CreateUserPOJO createUserJson = new CreateUserPOJO( getRandom() + "@ya.ru", getRandom(),
                 getRandom());
@@ -40,6 +42,7 @@ public class CreateUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can't create two users with same values")
     public void canNotCreateSameUser() {
         CreateUserPOJO createUserJson = new CreateUserPOJO( getRandom() + "@ya.ru", getRandom(),
                 getRandom());
@@ -53,6 +56,7 @@ public class CreateUserTest extends RandomGenerator {
     }
 
     @Test
+    @DisplayName("Can't create user without one value")
     public void canNotCreateUserWithoutValue() {
         CreateUserPOJO createUserJson1 = new CreateUserPOJO( null, getRandom(), getRandom());
         CreateUserPOJO createUserJson2 = new CreateUserPOJO( getRandom() + "@ya.ru", null,

@@ -1,5 +1,6 @@
 package api.client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import org.example.CreateOrderPOJO;
 import org.example.IngredientResponsePOJO2;
@@ -9,6 +10,7 @@ import static org.example.resources.Constants.*;
 
 public class OrderClient {
 
+    @Step("Get ingredients")
     public IngredientResponsePOJO2 getIngredients() {
          return given()
                  .header("Content-type", "application/json")
@@ -17,6 +19,7 @@ public class OrderClient {
 
     }
 
+    @Step("Create order")
     public ValidatableResponse createOrder(CreateOrderPOJO createOrderJson, String token) {
         return given()
                 .header("Content-type", "application/json")
@@ -26,6 +29,7 @@ public class OrderClient {
                 .then();
     }
 
+    @Step("Get orders of current user")
     public ValidatableResponse getOrdersCurrentUser(String token) {
         return given()
                 .header("Content-type", "application/json")
