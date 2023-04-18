@@ -14,12 +14,12 @@ public class IngredientResponsePOJO {
         private String image_large;
         private int __v;
 
-    public String get_id() {
+    public String getId() {
         return _id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setId(String id) {
+        this._id = id;
     }
 
     public String getName() {
@@ -86,27 +86,27 @@ public class IngredientResponsePOJO {
         this.image = image;
     }
 
-    public String getImage_mobile() {
+    public String getImageMobile() {
         return image_mobile;
     }
 
-    public void setImage_mobile(String image_mobile) {
-        this.image_mobile = image_mobile;
+    public void setImageMobile(String imageMobile) {
+        this.image_mobile = imageMobile;
     }
 
-    public String getImage_large() {
+    public String getImageLarge() {
         return image_large;
     }
 
-    public void setImage_large(String image_large) {
-        this.image_large = image_large;
+    public void setImageLarge(String imageLarge) {
+        this.image_large = imageLarge;
     }
 
-    public int get__v() {
+    public int getV() {
         return __v;
     }
 
-    public void set__v(int __v) {
-        this.__v = __v;
+    public void setV(int v) {
+        this.__v = v;
     }
 }

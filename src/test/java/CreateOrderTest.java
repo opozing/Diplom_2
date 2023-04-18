@@ -41,7 +41,7 @@ public class CreateOrderTest extends RandomGenerator {
         token = userClient.create(createUserJson)
                 .extract().body().path("accessToken");
         ingredientsList = orderClient.getIngredients();
-        ingredientsIdList.add(ingredientsList.getData().get(0).get_id());
+        ingredientsIdList.add(ingredientsList.getData().get(0).getId());
         CreateOrderPOJO createOrderJson = new CreateOrderPOJO(ingredientsIdList);
 
         orderClient.createOrder(createOrderJson, token)
@@ -57,7 +57,7 @@ public class CreateOrderTest extends RandomGenerator {
     @DisplayName("Can create order by unauthorized user")
     public void canCreateOrderUnauthorizedUser() {
         ingredientsList = orderClient.getIngredients();
-        ingredientsIdList.add(ingredientsList.getData().get(0).get_id());
+        ingredientsIdList.add(ingredientsList.getData().get(0).getId());
         CreateOrderPOJO createOrderJson = new CreateOrderPOJO(ingredientsIdList);
 
         orderClient.createOrder(createOrderJson, "")
