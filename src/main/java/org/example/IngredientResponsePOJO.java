@@ -1,7 +1,10 @@
 package org.example;
 
+import com.google.gson.annotations.SerializedName;
+
 public class IngredientResponsePOJO {
-        private String _id;
+        @SerializedName("_id")
+        private String id;
         private String name;
         private String type;
         private int proteins;
@@ -12,14 +15,15 @@ public class IngredientResponsePOJO {
         private String image;
         private String image_mobile;
         private String image_large;
-        private int __v;
+        @SerializedName("__v")
+        private int v;
 
     public String getId() {
-        return _id;
+        return id;
     }
 
     public void setId(String id) {
-        this._id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -103,10 +107,10 @@ public class IngredientResponsePOJO {
     }
 
     public int getV() {
-        return __v;
+        return v;
     }
 
     public void setV(int v) {
-        this.__v = v;
+        this.v = v;
     }
 }
